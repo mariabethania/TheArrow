@@ -13,7 +13,7 @@ class Target {
   }
 
 void update() {
-  x -= 2;
+  x -= width*0.0051;
 }
 
    boolean isDead() {

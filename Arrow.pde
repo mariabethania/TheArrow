@@ -3,18 +3,19 @@ class Arrow {
    PVector tip;
    PVector vel;
    PVector acc;
-   float rad = width*0.02;
+   float rad = width*0.01;
    float lifespan;
    float grvt;
    float prevX,prevY;
    float tempX,tempY;
    boolean tempBool;
-PImage arrow; 
-float rotateArrow;
-float rotaIncDec;
+//PImage arrow; 
+//float rotateArrow;
+//float rotaIncDec;
 int hitCount;
+//int num = 0;
 
-   Arrow(float x, float y, float vX,float vY,float rota) {
+   Arrow(float x, float y, float vX,float vY) {
       //for (int i =0; i < 1; i++) {
          tip = new PVector(x,y);
          //tail = new PVector(tailX,tailY);
@@ -23,9 +24,9 @@ int hitCount;
          grvt = -height*0.00005;
          lifespan = 255;
          tempBool = true;
-    arrow = loadImage("arrowDiagonal.png");
-    arrow.resize(int(height*0.1),int(height*0.1));
-    rotateArrow = rota;
+    //arrow = loadImage("arrowDiagonal.png");
+    //arrow.resize(int(height*0.1),int(height*0.1));
+    //rotateArrow = rota;
     hitCount = 0;
       //}
    }
@@ -33,6 +34,12 @@ int hitCount;
    void update(){
      //prevX = tip.x;
      //prevY = tip.y;
+//      acc.y -= grvt;
+//      vel.add(acc);
+//      tip.add(vel);
+//arrowX = tip.x;
+//arrowY = tip.y;    //***********************************
+
     //if (bs.runBalloon().b.isDead()) 
     //{ 
       //hitCount += 1;
@@ -63,7 +70,7 @@ int hitCount;
               lifeWon += 1;
               bull += 1;
               points += 50;
-              delay -= 0.01;
+              delay -= 0.02;
               tempY = trgt.y+(trgt.rad/2);
               hitCountText += 1;
             }
@@ -77,35 +84,39 @@ int hitCount;
       textSize(height*0.046);
       text("+50",trgt.x,trgt.y);
     }
-} else 
+}
+else 
   {
      prevX = tip.x;
      prevY = tip.y;
       acc.y -= grvt;
       vel.add(acc);
       tip.add(vel);
-      
-      arrowX = tip.x;
-      arrowY = tip.y;
+arrowX = tip.x;
+arrowY = tip.y; 
+//println(tip.x,tip.y);
+
       //if (arrowX < 0 || arrowX > width || arrowY < 0 || arrowY > height) {
       //  arrowX = width/2;
       //  arrowY = height;
       //}
-     rotaIncDec = (rotateArrow);
+     //rotaIncDec = (rotateArrow);
 
      //if (vel.x < 0){
      //rotaIncDec -= vel.y*0.1;
      //} else 
-     if (vel.y > 0) {
-       if ( vel.x < 0) {
-         rotaIncDec -= vel.y*0.05;
-       } else 
-       if ( vel.x > 0) {
-         rotaIncDec += vel.y*0.05;
-       }  
-     }
+     //**************************** this is for the texture .png arrow version
+     //if (vel.y > 0) {
+     //  if ( vel.x < 0) {
+     //    rotaIncDec -= vel.y*0.05;
+     //  } else 
+     //  if ( vel.x > 0) {
+     //    rotaIncDec += vel.y*0.05;
+     //  }  
+     //}
       //lifespan -= 2;
   }   //rota -= 0.1;
+
  }
   
    boolean isDead() {

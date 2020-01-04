@@ -12,7 +12,7 @@ class Plop {
       //for (int i =0; i < 1; i++) {
          pos = new PVector(x,y);
          vel = new PVector(random(-2,2),random(-4,0));
-         acc = new PVector(0,0.1);
+         acc = new PVector(0,height*0.00014);
          red = red_;
          green = green_;
          blue = blue_;

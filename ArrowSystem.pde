@@ -7,7 +7,7 @@ class ArrowSystem {
    }
 
    void addArrow(float x, float y, float vX,float vY,float rota){
-      aArray.add(new Arrow(x,y, vX, vY,rota));
+      aArray.add(new Arrow(x,y, vX, vY));
          //hitCount = 0;
          //target1.pause();
          //target1.rewind();

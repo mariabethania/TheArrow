@@ -58,11 +58,8 @@ class BalloonSystem {
          if (g.isDead()) {
             //pop4.setGain(-5);
             //pop4.amp(0.5);
-            pop4.play();
+            //pop4.play();
             ghost.remove(i);
-            for (int n = 0; n < 10; n++) {
-              ps.addPlop(g.pos.x,g.pos.y,255,255,255);
-            }
          }
       }
       ps.runPlop();
