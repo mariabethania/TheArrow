@@ -7,7 +7,7 @@ class Balloon {
   float rad = height*0.06;
   float not = rad*0.3;
   float triB = rad*0.07;
-//float arrowX, arrowY;
+  //float arrowX, arrowY;
   int num = 0;
 
   Balloon() {
@@ -18,8 +18,8 @@ class Balloon {
     red = random(100, 255);
     green = random(50, 255);
     blue = random(50, 255);
-      //arrowX = x;
-      //arrowY = y;
+    //arrowX = x;
+    //arrowY = y;
     //}
   }
 

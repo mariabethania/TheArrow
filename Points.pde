@@ -16,7 +16,7 @@ class Points {
   }
 
   void display() {
-    fill(255,0,0);
+    fill(255, 0, 0);
     textSize(height*0.057);
     text(points, pos.x, pos.y);
   }

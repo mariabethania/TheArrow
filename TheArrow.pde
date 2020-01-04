@@ -4,11 +4,11 @@
 import processing.sound.*;
 //import cassette.audiofiles.SoundFile;
 
-SoundFile pop1,pop2,pop3,pop1b,pop2b,pop3b,pop4,ghost1,ghost2,ghost3;
-SoundFile arrow1,arrow2,arrow3,arrow4;
-SoundFile target1,chimes;
+SoundFile pop1, pop2, pop3, pop1b, pop2b, pop3b, pop4, ghost1, ghost2, ghost3;
+SoundFile arrow1, arrow2, arrow3, arrow4;
+SoundFile target1, chimes;
 //float arrowPNG;
-int px, py, rx, ry,dx,dy; // mouse & pressed and released variables
+int px, py, rx, ry, dx, dy; // mouse & pressed and released variables
 float x, y, xv, yv, xa, ya;
 PImage ballon;
 Timer timer, timer1;
@@ -25,12 +25,13 @@ Target trgt;
 PImage arrowMenu;
 PImage bkg1, bkg2;
 PImage bow, bowArrow, arrowMain;
-float arrowX, arrowY;
+float arrowX, arrowY,arrowX1, arrowY1,arrowX2, arrowY2,arrowX3, arrowY3,arrowX4, arrowY4,arrowX5, arrowY5;
 float moveBow;
-float arrowTipX, arrowTipY, arrowTailX, arrowTailY, rotateX, rotateY;
-int lifeCount,lifeLost;
+//float arrowTipX, arrowTipY, arrowTailX, arrowTailY, 
+//float rotateX, rotateY;
+int lifeCount, lifeLost;
 int points;
-int miss, hit, hitCountText, hitCount,ghostCount;
+int miss, hit, hitCountText, hitCount, ghostCount;
 int lifeWon, bull;
 boolean showLn = false;
 boolean menuBool = true;
@@ -51,9 +52,9 @@ void setup() {
   pop2b = new SoundFile(this, "burst2b.mp3");
   pop3b = new SoundFile(this, "burst3b.mp3");
   pop4 = new SoundFile(this, "pop1.mp3");
-  ghost1 = new SoundFile(this,"ghost1.mp3");
-  ghost2 = new SoundFile(this,"ghost2Low.mp3");
-  ghost3 = new SoundFile(this,"ghost3.mp3");
+  ghost1 = new SoundFile(this, "ghost1.mp3");
+  ghost2 = new SoundFile(this, "ghost2Low.mp3");
+  ghost3 = new SoundFile(this, "ghost3.mp3");
   arrow1 = new SoundFile(this, "arrow1.mp3");
   arrow2 = new SoundFile(this, "arrow2.mp3");
   arrow3 = new SoundFile(this, "arrow3.mp3");
@@ -64,8 +65,8 @@ void setup() {
 
   moveBow = height*0.8;
   bowTemp = height*0.7;
-  rotateX = width*0.5;
-  rotateY = 0;
+  //rotateX = width*0.5;
+  //rotateY = 0;
   bkg1 = loadImage("skyGrass2.jpg");
   bkg1.resize(int(width*1.33), height);
   bkg2 = loadImage("skyGrassLargeR.jpg");
@@ -94,7 +95,7 @@ void setup() {
   //arrowTipY = arrowTailY-height*0.65;
   timer = new Timer(delay);
   timer1 = new Timer(15);
-  ghostTimer = new Timer(random(20,30));
+  ghostTimer = new Timer(random(20, 30));
   rectMode(CENTER);
   strokeWeight(5);
 }
@@ -108,7 +109,7 @@ void draw() {
     image(bkg2, 0, 0);
   }
   image(bowArrow, 0, moveBow); 
-//println(arrw.tip.x,arrw.tip.y);
+  //println(arrw.tip.x,arrw.tip.y);
   if (lifeCount <= 0 && !menuBool) {
     scoreBool = true;
     menuBool = false;
@@ -130,7 +131,7 @@ void draw() {
     //textAlign(CENTER, TOP);
     textSize(height*0.07);
     //fill(255, 255*(lifeCount*0.3), 0);
-    fill(255,220,0);
+    fill(255, 220, 0);
     if (hitCountText > 0) {
       text("+"+hitCountText+" lifes", width*0.5, height*0.5);
       balloon.vel.y += 0.1;
@@ -147,22 +148,22 @@ void draw() {
     text(bull, width*0.9, height*0.03);
     textSize(height*0.028);
     text("BEye", width*0.9, 0);
-                                      // runs skull
+    // runs skull
     ghostTimer.countDown();
     if (ghostTimer.getTime() <= 0) {
       for (int i = 0; i < 1; i++) {
         bs.addGhost();
-        ghostTimer.setTime(random(20,30));
+        ghostTimer.setTime(random(20, 30));
         ghost1.play();
       }
     }
-bs.runGhost();
-                                          // runs target
+    bs.runGhost();
+    // runs target
     timer1.countDown();
     if (timer1.getTime() <= 0) {
       trgt.update();
       trgt.display();
-//bs.runTarget();
+      //bs.runTarget();
     }
 
     if (trgt.x+(trgt.rad*2) <= 0) {
@@ -172,22 +173,22 @@ bs.runGhost();
       bs.addTarget();
     }
 
-  //arrowTailY = dy;//arrowTailY+height*0.15;
-  //pushMatrix();
-  //imageMode(CENTER);
-  //translate(dx,dy);//(arrowTailX,arrowTailY);
-  //rotate(rotateX);
-  //image(arrowMain,0,-arrowTipY);
-  //popMatrix();
-  if (py > moveBow) {
-    noStroke();
-    fill(255,255,0,transparency);
-    ellipse(px,py,width*0.02,width*0.02);
-    strokeWeight(2);
-    stroke(100,50,20,transparency);
-    line(px,py,dx,dy);
-  }
-                                      // runs balloons
+    //arrowTailY = dy;//arrowTailY+height*0.15;
+    //pushMatrix();
+    //imageMode(CENTER);
+    //translate(dx,dy);//(arrowTailX,arrowTailY);
+    //rotate(rotateX);
+    //image(arrowMain,0,-arrowTipY);
+    //popMatrix();
+    if (py > moveBow) {
+      noStroke();
+      fill(255, 255, 0, transparency);
+      ellipse(px, py, width*0.02, width*0.02);
+      strokeWeight(2);
+      stroke(100, 50, 20, transparency);
+      line(px, py, dx, dy);
+    }
+    // runs balloons
     timer.countDown();
     if (timer.getTime() <= 0) {
       for (int i = 0; i < 1; i++) {
@@ -195,24 +196,24 @@ bs.runGhost();
         timer.setTime(delay);
       }
     }
-bs.runBalloon();
+    bs.runBalloon();
 
-as.runArrow();
-ts.runTail();
+    as.runArrow();
+    ts.runTail();
   }
-                              // determines mouse position in order to show arrow guide
+  // determines mouse position in order to show arrow guide
 }
 
 void mousePressed() {
   if (menuBool && !scoreBool) {
     if (mouseX > width*0.4 && mouseX < width*0.6 && mouseY > height*0.42 && mouseY < height * 0.48 
-        && timer1.getTime() < 15 && lifeCount > 0) {
+      && timer1.getTime() < 15 && lifeCount > 0) {
       menuBool = false;
       scoreBool = false;
       moveBow = bowTemp;
     } else 
     if (mouseX > width*0.4 && mouseX < width*0.6 && mouseY > height*0.54 && mouseY < height *0.6 
-        && timer1.getTime() < 15 && lifeCount > 0) {
+      && timer1.getTime() < 15 && lifeCount > 0) {
       menuBool = false;
       scoreBool = false;
       bs = new BalloonSystem();
@@ -261,7 +262,7 @@ void mousePressed() {
       delay = 1.5;
       ghostCount = 0;
       minVel = 0;
-  } else
+    } else
       if (mouseX > width*0.57 && mouseX < width*0.8 && mouseY > height*0.7 &mouseY < height*0.75) {
         menuBool = false;
         scoreBool = true;
@@ -298,15 +299,14 @@ void mousePressed() {
   //if (mouseY > height*0.7) {
   px = mouseX; 
   py = mouseY;
-
 }
 
 void mouseDragged() {
-  rotateX = (pmouseX-mouseX)*0.09;
-  rotateY = (pmouseY-mouseY)*0.09;
-  arrowTailX = mouseX;
-  arrowTailY = mouseY;
-  arrowTipX = mouseX;
+  //rotateX = (pmouseX-mouseX)*0.09;
+  //rotateY = (pmouseY-mouseY)*0.09;
+  //arrowTailX = mouseX;
+  //arrowTailY = mouseY;
+  //arrowTipX = mouseX;
   //line(px,py,mouseX,mouseY);  
   if ((mouseX < width*0.1 || mouseX > width*0.9) && mouseY < moveBow) {
     moveBow = mouseY+(height*0.1);
@@ -315,13 +315,13 @@ void mouseDragged() {
   //if (mouseY < moveBow) {
   //moveBow = mouseY;
   //}
-transparency = 255;//}
-dx = mouseX;
-dy = mouseY;
+  transparency = 255;//}
+  dx = mouseX;
+  dy = mouseY;
 }
 
 void mouseReleased() {
-transparency = 0;
+  transparency = 0;
   rx = mouseX;
   ry = mouseY;
   if (py > moveBow && ry > moveBow) {
@@ -335,24 +335,24 @@ transparency = 0;
       as.addArrow(px, py, xv, yv, xv*0.05);
       //arrow1.setGain(-10);
       //arrow1.amp(-0.7);
-      int num = int(random(1,5));
-        //println(num);
+      int num = int(random(1, 5));
+      //println(num);
       switch(num) {
-        case 1:
+      case 1:
         arrow1.play();
         break;
-        case 2:
+      case 2:
         arrow2.play();
         break;
-        case 3:
+      case 3:
         arrow3.play();
         break;
-        case 4:
+      case 4:
         arrow4.play();
         break;
       }
     }
   }
-dx = px;
-dy = py;
+  dx = px;
+  dy = py;
 }
