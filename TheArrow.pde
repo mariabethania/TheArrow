@@ -1,8 +1,8 @@
 
 //este es el mero
 
-import processing.sound.*;
-//import cassette.audiofiles.SoundFile;
+//import processing.sound.*;
+import cassette.audiofiles.SoundFile;
 
 SoundFile pop1, pop2, pop3, pop1b, pop2b, pop3b, pop4, ghost1, ghost2, ghost3,ding1;
 SoundFile arrow1, arrow2, arrow3, arrow4;
@@ -42,9 +42,9 @@ float minVel = 0;
 
 
 void setup() {
-  size(394, 700, P2D);
-  //orientation(PORTRAIT);
-  //size(displayWidth,displayHeight,P2D);
+  //size(394, 700, P2D);
+  orientation(PORTRAIT);
+  size(displayWidth,displayHeight,P2D);
   pop1 = new SoundFile(this, "burst1.mp3");
   pop2 = new SoundFile(this, "burst2.mp3");
   pop3 = new SoundFile(this, "burst3.mp3");
