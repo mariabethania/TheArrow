@@ -3,11 +3,17 @@ class Points {
   PVector vel;
   PVector pos;
   PVector acc;
-  Points(float x, float y, String points_) {
+  int r,g,b;
+  float sz;
+  Points(float x, float y, String points_, int r_,int g_,int b_,float sz_) {
     points = new String(points_);
     pos = new PVector(x, y);
     vel = new PVector(0, -2);
     acc = new PVector(0, 0.2);
+    r = r_;
+    g = g_;
+    b = b_;
+    sz = sz_;    
   }
 
   void update() {
@@ -16,8 +22,8 @@ class Points {
   }
 
   void display() {
-    fill(255, 0, 0);
-    textSize(height*0.057);
+    fill(r, g, b);
+    textSize(sz);
     text(points, pos.x, pos.y);
   }
 

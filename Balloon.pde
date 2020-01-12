@@ -39,6 +39,7 @@ class Balloon {
     { 
       hitCount++;
       points++;
+      ps.addPoints(pos.x, pos.y, "+1",50,200,255,height*0.04);
       //hitCountText = hitCount;
       if (hitCount > 3) {
         lifeWon += 1;
@@ -86,7 +87,7 @@ class Balloon {
       lifeCount -= 1;
       lifeLost -= 1;
       miss -= 1;
-      ps.addPoints(pos.x, pos.y, "-1");
+      ps.addPoints(pos.x, pos.y, "-1 Lives",255,0,0,height*0.05);
       //pop4.setGain(-5);
       //pop4.amp(0.5);
       pop4.play();

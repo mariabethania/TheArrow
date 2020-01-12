@@ -16,8 +16,8 @@ class PlopSystem {
 
     pArray.add(new Plop(x_, y_, red_, green_, blue_));
   }
-  void addPoints(float x, float y, String points_) {
-    points.add(new Points(x, y, points_));
+  void addPoints(float x, float y, String points_,int r_,int g_,int b_, float sz_) {
+    points.add(new Points(x, y, points_,r_,g_,b_,sz_));
   }
   void runPlop() {
     for (int i = pArray.size()-1; i >= 0; i--) {

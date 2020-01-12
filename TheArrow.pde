@@ -4,7 +4,7 @@
 import processing.sound.*;
 //import cassette.audiofiles.SoundFile;
 
-SoundFile pop1, pop2, pop3, pop1b, pop2b, pop3b, pop4, ghost1, ghost2, ghost3;
+SoundFile pop1, pop2, pop3, pop1b, pop2b, pop3b, pop4, ghost1, ghost2, ghost3,ding1;
 SoundFile arrow1, arrow2, arrow3, arrow4;
 SoundFile target1, chimes;
 //float arrowPNG;
@@ -62,6 +62,7 @@ void setup() {
   //ding1 = new SoundFile(this, "Sound 6.mp3");
   target1 = new SoundFile(this, "target1.mp3");
   chimes = new SoundFile(this, "fairy1.mp3");
+  ding1 = new SoundFile(this, "ding1.mp3");
 
   moveBow = height*0.8;
   bowTemp = height*0.7;

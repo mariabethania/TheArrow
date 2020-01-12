@@ -61,6 +61,7 @@ class Arrow {
         tempY = random(trgt.y+(trgt.rad*0.25), trgt.y+(trgt.rad*0.75));
         //println(trgt.x+" + "+temp);
         points++;
+      ps.addPoints(trgt.x, trgt.y-trgt.rad, "+1",50,200,255,height*0.04);
         tempBool = false;
         if (tempX >= width*0.065 && tempX <= width*0.088) {
           for (int i = 0; i < 10; i++) {
@@ -73,17 +74,19 @@ class Arrow {
           delay -= 0.02;
           tempY = trgt.y+(trgt.rad/2);
           hitCountText += 1;
+          chimes.play();
         }
       }
       tip.y = tempY;//trgt.y+(trgt.rad/2);
       tip.x = trgt.x+(tempX);//+(arrowX-trgt.x);
       //lifespan = 0;
       if (tempX >= width*0.065 && tempX <= width*0.088) {
-        fill(255, 220, 0);
+      //ps.addPoints(trgt.x, trgt.y-trgt.rad, "+50",50,200,255);
+        fill(255);
         textAlign(LEFT, BOTTOM);
         textSize(height*0.046);
         text("+50", trgt.x, trgt.y);
-      }
+      } 
     } else 
     {
       prevX = tip.x;

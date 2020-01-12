@@ -29,12 +29,12 @@ background(255,0,0);
       ghostCount -= 1;
       lifeLost -= 1;
       lifeCount -= 1;
-      ps.addPoints(pos.x, pos.y, "-1");
+      ps.addPoints(pos.x, pos.y, "-1 Lives",255,0,0,height*0.057);
       //ghost2.setGain(-10);
       //ghost2.amp(0.5);
       ghost2.play();
       lifespan = 0;
-      for (int n = 0; n < 50; n++) {
+      for (int n = 0; n < 20; n++) {
         ps.addPlop(pos.x, pos.y, 200, 0, 0);//random(75,200),random(50),random(50));
       }
     }
