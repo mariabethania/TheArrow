@@ -336,7 +336,7 @@ void mouseReleased() {
       as.addArrow(px, py, xv, yv, xv*0.05);
       //arrow1.setGain(-10);
       //arrow1.amp(-0.7);
-      int num = int(random(1, 5));
+      int num = floor(random(1, 5));
       //println(num);
       switch(num) {
       case 1:
